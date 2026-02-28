@@ -48,8 +48,8 @@
             top: 20px;
             right: 20px;
             width: 280px;
-            background: rgba(15, 15, 25,);
-            backdrop-filter 0.85: blur(20px);
+            background: rgba(15, 15, 25, 0.85);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 0;
@@ -253,6 +253,12 @@
         
         .bottom-bar:hover {
             opacity: 1;
+        }
+
+        @media (hover: none) {
+            .bottom-bar {
+                opacity: 1;
+            }
         }
         
         .icon-btn {
@@ -1077,6 +1083,7 @@
     
     canvas.addEventListener('touchstart', e => {
         e.preventDefault();
+        document.getElementById('hint').classList.add('hidden');
         const pos = getPointerPos(e);
         mouse.down = true;
         mouse.x = mouse.prevX = pos.x;
